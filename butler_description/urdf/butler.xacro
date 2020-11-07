@@ -1096,23 +1096,65 @@
   </collision>
 </link>
 
-<link name="caster_wheel_v1_1">
+<link name="Caster_22455T16_c_holder_v1_1">
   <inertial>
-    <origin rpy="0 0 0" xyz="4.1440126784600406e-07 -0.028770499244561654 -0.05704254380277546"/>
-    <mass value="5.093579795561285"/>
-    <inertia ixx="0.015758" ixy="0.0" ixz="0.0" iyy="0.011614" iyz="-0.002665" izz="0.008251"/>
+    <origin rpy="0 0 0" xyz="4.14401267874627e-07 -0.007270384224206672 -0.012895486478287754"/>
+    <mass value="1.5414255098340268"/>
+    <inertia ixx="0.002531" ixy="0.0" ixz="0.0" iyy="0.002707" iyz="-0.000567" izz="0.00263"/>
   </inertial>
   <visual>
     <origin rpy="0 0 0" xyz="0.007566 0.308395 -0.319071"/>
     <geometry>
-      <mesh filename="package://butler_description/meshes/caster_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://butler_description/meshes/Caster_22455T16_c_holder_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
     <material name="silver"/>
   </visual>
   <collision>
     <origin rpy="0 0 0" xyz="0.007566 0.308395 -0.319071"/>
     <geometry>
-      <mesh filename="package://butler_description/meshes/caster_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+      <mesh filename="package://butler_description/meshes/Caster_22455T16_c_holder_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Caster_22455T16_c_wheel_v1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.030162414401267875 -2.814248750704351e-07 2.3641725729883767e-07"/>
+    <mass value="3.4593973640052362"/>
+    <inertia ixx="0.007896" ixy="-0.0" ixz="-0.0" iyy="0.004531" iyz="0.0" izz="0.004531"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.03849 0.346495 -0.242871"/>
+    <geometry>
+      <mesh filename="package://butler_description/meshes/Caster_22455T16_c_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.03849 0.346495 -0.242871"/>
+    <geometry>
+      <mesh filename="package://butler_description/meshes/Caster_22455T16_c_wheel_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Caster_22455T16_c_rod_v1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.038544414401267824 -2.8142487445981246e-07 2.3641724580802936e-07"/>
+    <mass value="0.09275692172202199"/>
+    <inertia ixx="2e-06" ixy="-0.0" ixz="0.0" iyy="6.9e-05" iyz="0.0" izz="6.9e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.04484 0.346495 -0.242871"/>
+    <geometry>
+      <mesh filename="package://butler_description/meshes/Caster_22455T16_c_rod_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.04484 0.346495 -0.242871"/>
+    <geometry>
+      <mesh filename="package://butler_description/meshes/Caster_22455T16_c_rod_v1_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -1425,11 +1467,24 @@
   <child link="caster_base_v1_1"/>
 </joint>
 
-<joint name="Rev56" type="continuous">
+<joint name="Rev57" type="continuous">
   <origin rpy="0 0 0" xyz="-0.033338 -0.046037 -0.02413"/>
   <parent link="caster_base_v1_1"/>
-  <child link="caster_wheel_v1_1"/>
+  <child link="Caster_22455T16_c_holder_v1_1"/>
   <axis xyz="0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Rev58" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.030924 -0.0381 -0.0762"/>
+  <parent link="Caster_22455T16_c_holder_v1_1"/>
+  <child link="Caster_22455T16_c_wheel_v1_1"/>
+  <axis xyz="1.0 -0.0 -0.0"/>
+</joint>
+
+<joint name="Rigid59" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.037274 -0.0381 -0.0762"/>
+  <parent link="Caster_22455T16_c_holder_v1_1"/>
+  <child link="Caster_22455T16_c_rod_v1_1"/>
 </joint>
 
 </robot>
